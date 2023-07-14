@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ACM</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="acm.css">
+	<link rel="stylesheet" href="cardfunction.css">
+	<link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" type="text/css"
+</head>
+
+<body>
+    <!-- Title Bar -->
+	<nav>
+		<div class="nav-wrapper red">
+			<a href="#" class="home_class brand-logo" style="padding-left:15px;">Ancient Chinese Mathematics</a>
+		</div>
+	</nav>
+
+    <!-- Menu Bar -->
+    <nav>
+		<div class="nav-wrapper red darken-3">
+            <!-- Home/Math/History buttons -->
+            <ul class="left">
+                <li><a href="#" id = "home_nav" style = "display:block" class="home_class">Home</a></li>
+                <li><a href="#" id = "math_nav" style = "display:block">Math</a></li>
+                <li><a href="#" id = "history_nav" style = "display:block">History</a></li>
+                <li><a href="#" id = "about_nav" style = "display:block">About</a></li>
+            </ul>
+            <!-- New User/Login/Logout buttons -->
+            <ul class="right">
+                <li><a href="#login_modal" id = "login_nav" class = "modal-trigger">Log In</a></li>
+                <li><a href="#new_user_modal" id = "new_user_nav" class = "modal-trigger">New User</a></li>
+                <li><a href="#" id = "logout_nav" style = "display:none">Log out</a></li>
+            </ul>
+		</div>
+	</nav>
+
+    <!-- Login Modal -->
+	<div id="login_modal" class="modal">
+		<div class = "custom_padding">
+			<form id="login_form" autocomplete = "on">
+
+				<div class="input-field">
+					<input type="email" id="user_name" autocomplete="" required />
+					<label for="user_name">User Name</label>
+				</div>
+
+				<div class="input-field">
+					<input type="password" id="user_password" autocomplete="" required />
+					<label for="user_password">Password</label>
+				</div>
+				
+				<button class="btn red darken-3 z-depth-5">Login</button>
+			
+            </form>
+		</div>
+	</div>
+
+    <!-- New User Modal -->
+	<div id="new_user_modal" class = "modal">
+		<div class = "custom_padding">	
+			<form id="new_user_form" autocomplete = "off">
+                <p class="custom_form_header">Enter User Info</p>
+
+				<div class="input-field">
+					<input type="email" id="user_name2" autocomplete="" required />
+					<label for="user_name2">User Name</label>
+				</div>
+
+				<div class="input-field">
+					<input type="password" id="user_password2" autocomplete="" required />
+					<label for="user_password2">Password</label>
+				</div>
+
+				<div class="input-field">
+					<input type="password" id="user_password_c" autocomplete="" required />
+					<label for="user_password_c">Confirm Password</label>
+				</div>
+
+				<div class="input-field">
+                    <p class="custom_form_header">Select mathematics skill level</p>
+                    <p>
+                        <label>
+                            <input type="radio" class="with-gap" name="group1" value="Beginner"/>
+                            <span>Beginner</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="radio" class="with-gap" name="group1" value="Intermediate"  />
+                            <span>Intermediate</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="radio" class="with-gap" name="group1" value="Advanced"  />
+                            <span>Advanced</span>
+                        </label>
+                    </p> 
+				</div>
+
+                <br>
+				<button class="btn red darken-3 z-depth-5 waves-effect waves-light">Create New Account</button>
+			
+            </form>
+		</div>
+	</div>
+
+    <!-- Course Content -->
+	<div id = "home" class = "page_header" style="padding-left:15px;">
+        <h4>Recommended Courses</h4>
+	</div>
+
+	<div id = "math" class = "page_header" style="padding-left:15px;display:none">
+		<h4>Math Courses</h4>
+	</div>
+
+	<div id = "history" class = "page_header" style="padding-left:15px;display:none">
+		<h4>History Courses</h4>
+	</div>
+
+    <div id = "about" class = "page_header" style="padding-left:15px;display:none">
+		<h4>About</h4>
+
+        <div class="col s6 m4">
+            <div class="card about_width">
+                <div class="card-image">
+                    <img class="my_height" onclick="enter_course()" src="images/abacus4.jpg">
+                </div>
+            <div class="my_padding red white-text">
+                <h6 onclick="enter_course()" style='font-weight: bold;'>About</h6>
+            </div>
+            <div class="my_padding red darken-3 white-text">
+                <p>ACMath (Ancient Chinese Mathematics) is a personalized learning prototype for you to learn mathematics discovered in ancient China.</p>
+                <p>Challenge yourself with our mathematics courses while immersing yourself in ancient Chinese culture.</p>
+                <p>We currently only have one course, the Pythagorean Theorem, as this site is a mockup.</p>
+                <p>Created by Gordon Liang. View code on Github.</p>
+                <!-- <i class="material-icons">code</i> -->
+                <a 
+                    href="https://youtube.com" 
+                    target="_blank" 
+                    class="btn halfway-fab waves-effect waves-light red fade"><i class="material-icons">code</i>
+                </a>
+            </div>
+        </div>
+        </div>
+        
+	</div>
+
+
+
+
+
+    <div id="course_cards" class = "container left">
+		<div class = "row" id = "cardDisplay"></div>
+	</div>
+
+
+
+
+
+    <div id="course" style="display: none;">
+    <div class="col s12 m7">
+        <div class="card horizontal z-depth-0">
+            <div class="card-image" style="padding-left:50px;">
+                <h4>Pythagorean Theorem</h4>
+                <img src="images/py.png">
+                <p id="paragraph_content" style="font-size: 120%;"></p>
+            </div>
+    
+            <div class="card-stacked">
+                <div class="card-content">
+                    <div style="padding-left: 20px;padding-right: 20px;">
+                         <div class="row white-text">
+                            <div class="card-panel red darken-3">
+                                <span id="answer_form_header"></span>
+                                <form id="answer_form">
+                                    <div class="input-field" style="padding:0px">
+                                        <p>
+                                            <label class="white-text">
+                                                <input id="btn1" type="radio" class="white" name="options_name" value="a" checked/>
+                                                <span id="option1" class="span"></span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <label class="white-text">
+                                                <input id="btn2" type="radio" class="white" name="options_name" value="b" disabled/>
+                                                <span id="option2" class="span"></span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <label class="white-text">
+                                                <input id="btn3" type="radio" class="white" name="options_name" value="c"/>
+                                                <span id="option3" class="span"></span>
+                                            </label>
+                                        </p> 
+                                    </div>
+                                            
+                                    <button id="submit_btn" type="button" onclick="submit_answer()" class="btn red darken-3 z-depth-0">Submit</button><br>
+                                    <button type="button" onclick="show_explanation()" class="btn red darken-3 z-depth-0">Show Explanation</button><br>
+                                    <button id="next_btn" type="button" onclick="next_slide()" class="btn red darken-3 z-depth-0">Next</button><br>
+    
+                                    <button id="message" class="btn red darken-3 z-depth-0">.</button>
+                                </form>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="acm.js"></script>
+    <script src="cardfunction.js"></script>
+    <script src="course.js"></script>
+
+</body>
+</html>
