@@ -1,0 +1,4 @@
+[type="radio"]:checked+span.span:after, [type="radio"].with-gap:checked+span.span:after {
+    background-color: white;
+    border: 2px solid white;
+}
